@@ -1,0 +1,16 @@
+class Solution:
+    def groupAnagrams(self, strs: list[str]) -> list[list[str]]:
+        returnDict = {}
+        for string in strs:
+            sortedStr = "".join(sorted(string))
+
+            if sortedStr in returnDict.keys():
+                returnDict[sortedStr].append(string)
+            else:
+                returnDict[sortedStr] = [string]
+
+        returnList = []
+        for sortedStr, strList in returnDict.items():
+            returnList.append(strList)
+
+        return returnList
